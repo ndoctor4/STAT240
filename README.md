@@ -1,4 +1,4 @@
-# STAT240
+# STAT240 Assignments
 This repository contains some of the assignments and projects I have worked on in my STAT240 course at Simon Fraser University. These projects were created using the coding languages R and SQLite.
 
 ## Contents
