@@ -1,0 +1,29 @@
+---
+title: 'Project B: Album Ratings'
+author: "Nabila Doctor"
+date: "March 8, 2020"
+output: word_document
+---
+
+Doing project B, the goal of my code was to create a function that would read the HTML text from the site Pitchfork, and return the review and rating of an album. The code I have presented does just this.
+
+The URL of an album review on Pitchfork enters the function as a string. Which then gets parsed as an XML object by `read_html().` This allows me to extract the desired data from a specific section of the page, using `html_nodes()` where the argument is the class of which the data is stored. For each album review, the review text is tagged as 'contents dropcaps' class and the rating is tagged as 'score.' This allows R to obtain the exact data I desire. The rating variable returns a numeric value of the album rating, as desired. The `text` variable, however, contains a character string of the review with extra text and format. Thus, using `gsub(),` I replace the line breaks (`\n`) and the last line of the review page. 
+
+After accomplishing this, the function returns a data frame object of the album review and rating. Which can be outputted using review$text and review$rating, as shown below:
+
+```{r}
+# Test 1
+source("MidtermQ3.R")
+review = pitchfork('https://pitchfork.com/reviews/albums/ratboys-printers-devil/')
+
+review$text
+review$rating
+```
+
+```{r}
+# Test 2
+review = pitchfork('https://pitchfork.com/reviews/albums/ozzy-osbourne-ordinary-man/')
+
+review$text
+review$rating
+```
